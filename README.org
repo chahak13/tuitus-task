@@ -1,3 +1,10 @@
 #+title: tuitus
 
 A simple CI test for running parameterized jupyter notebooks with papermill.
+
+** Usage
+~papermill~ is used to run the parameterized notebook =preprocessing.ipynb=. The ~npart_perdim_percell~ variable is tagged as a parameter and can be given value from the CLI as follows:
+
+#+begin_src shell
+papermill preprocessing.ipynb output.ipynb -p npart_perdim_percell 1
+#+end_src
