@@ -1,0 +1,25 @@
+name: Tuitus CI
+
+on:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  style:
+    runs-on: ubuntu-20.04
+    container:
+      image: chahak/tuitus:root
+    name: CI for Tuitus task
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Test 1 per cell
+        run : papermill preprocess.ipynb 1_per_cell.ipynb -p npart_perdim_percell 1
+      - name: Test 2 per cell
+        run: papermill preprocess.ipynb 2_per_cell.ipynb -p npart_perdim_percell 2
