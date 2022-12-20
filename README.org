@@ -1,0 +1,3 @@
+#+title: tuitus
+
+A simple CI test for running parameterized jupyter notebooks with papermill.
